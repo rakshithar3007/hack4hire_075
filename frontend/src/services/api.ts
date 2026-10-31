@@ -136,4 +136,17 @@ export const demoApi = {
   reset: (params?: { reset_all?: boolean }) => api.post('/demo/reset', null, { params }),
 };
 
+// Dataset — public, no auth required (uses same axios instance but token optional)
+export const datasetApi = {
+  getAll: (params?: {
+    search?: string;
+    fraud_status?: string;
+    validation_status?: string;
+    approval_status?: string;
+    page?: number;
+    page_size?: number;
+  }) => api.get('/dataset', { params }),
+  getSummary: () => api.get('/dataset/summary'),
+};
+
 export default api;

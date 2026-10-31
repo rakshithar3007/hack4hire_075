@@ -8,4 +8,5 @@ export * from './ReportsPage';
 export * from './AuditLogsPage';
 export * from './SettingsPage';
 export * from './LoginPage';
+export * from './DatasetPage';
 export * from './dashboards';

@@ -16,6 +16,7 @@ import {
   AuditLogsPage,
   SettingsPage,
   LoginPage,
+  DatasetPage,
 } from './pages';
 
 const AppRoutes: React.FC = () => {
@@ -116,6 +117,18 @@ const AppRoutes: React.FC = () => {
         }
       />
       <Route path="/audit" element={<Navigate to="/audit-logs" replace />} />
+
+      {/* Dataset page — accessible to all authenticated users */}
+      <Route
+        path="/dataset"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <DatasetPage />
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
 
       {/* Settings (Admin only) */}
       <Route

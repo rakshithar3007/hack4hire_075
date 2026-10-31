@@ -23,6 +23,7 @@ from app.api.notifications import router as notifications_router
 from app.api.n8n import router as n8n_router
 from app.api.demo import router as demo_router
 from app.api.users import router as users_router
+from app.api.dataset import router as dataset_router
 
 # Initialize database on app load
 init_database()
@@ -65,6 +66,7 @@ app.include_router(notifications_router, prefix=api_prefix)
 app.include_router(n8n_router, prefix=api_prefix)
 app.include_router(demo_router, prefix=api_prefix)
 app.include_router(users_router, prefix=api_prefix)
+app.include_router(dataset_router, prefix=api_prefix)
 
 @app.get("/")
 def root():

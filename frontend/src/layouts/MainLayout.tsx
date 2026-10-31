@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, FileText, UploadCloud, UserCheck,
-  ShieldAlert, BarChart3, History, Settings,
+  ShieldAlert, BarChart3, History, Settings, Database,
   Bell, Search, LogOut, ChevronDown, Menu, X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -78,6 +78,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       { label: 'Dashboard',      icon: LayoutDashboard, path: '/' },
       { label: 'My Invoices',    icon: FileText,        path: '/invoices' },
       { label: 'Upload Invoice', icon: UploadCloud,     path: '/upload' },
+      { label: 'Dataset',        icon: Database,        path: '/dataset' },
       { label: 'My Reports',     icon: BarChart3,       path: '/analytics' },
     ];
     if (role === 'manager') return [
@@ -85,6 +86,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       { label: 'Invoices',          icon: FileText,        path: '/invoices' },
       { label: 'Verification',      icon: ShieldAlert,     path: '/verification' },
       { label: 'Approvals',         icon: UserCheck,       path: '/approvals' },
+      { label: 'Dataset',           icon: Database,        path: '/dataset' },
       { label: 'Analytics',         icon: BarChart3,       path: '/analytics' },
     ];
     return [
@@ -92,6 +94,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       { label: 'Invoices',     icon: FileText,        path: '/invoices' },
       { label: 'Verification', icon: ShieldAlert,     path: '/verification' },
       { label: 'Approvals',    icon: UserCheck,       path: '/approvals' },
+      { label: 'Dataset',      icon: Database,        path: '/dataset' },
       { label: 'Analytics',    icon: BarChart3,       path: '/analytics' },
       { label: 'Audit Logs',   icon: History,         path: '/audit-logs' },
       { label: 'Settings',     icon: Settings,        path: '/settings' },
@@ -109,6 +112,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     if (p === '/verification') return [{ label: 'Verification & Fraud' }];
     if (p === '/approvals')    return [{ label: 'Approval Center' }];
     if (p === '/analytics')    return [{ label: 'Analytics' }];
+    if (p === '/dataset')      return [{ label: 'Dataset' }];
     if (p === '/audit-logs')   return [{ label: 'Audit Logs' }];
     if (p === '/settings')     return [{ label: 'Settings' }];
     return [{ label: p.replace('/', '') }];
@@ -130,7 +134,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     (path === '/invoices'     && ['/upload', '/extraction'].includes(location.pathname)) ||
     (path === '/verification' && ['/fraud', '/validation'].includes(location.pathname)) ||
     (path === '/analytics'    && location.pathname === '/reports') ||
-    (path === '/audit-logs'   && location.pathname === '/audit');
+    (path === '/audit-logs'   && location.pathname === '/audit') ||
+    (path === '/dataset'      && location.pathname === '/dataset');
 
   /* ─── render ──────────────────────────── */
   return (
