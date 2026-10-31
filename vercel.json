@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://invoiceguard-backend.onrender.com/api/:path*"
+      "destination": "https://invoiceguard-backend-8egf.onrender.com/api/:path*"
     },
     {
       "source": "/storage/:path*",
-      "destination": "https://invoiceguard-backend.onrender.com/storage/:path*"
+      "destination": "https://invoiceguard-backend-8egf.onrender.com/storage/:path*"
     },
     {
       "source": "/(.*)",

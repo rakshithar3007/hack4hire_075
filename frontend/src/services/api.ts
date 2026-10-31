@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || '/api';
+// Render backend. Not read from VITE_API_URL, which the Vercel project still sets to an older
+// deploy; local dev keeps going through the Vite proxy.
+export const API_BASE_URL = (import.meta as any).env?.DEV ? '/api' : 'https://invoiceguard-backend-8egf.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

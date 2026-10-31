@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play, Plus, RefreshCw, Workflow, Building, FileCheck, Server } from 'lucide-react';
-import { n8nApi, supplierApi, poApi, invoiceApi } from '../services/api';
+import { n8nApi, supplierApi, poApi, invoiceApi, API_BASE_URL } from '../services/api';
 import { Invoice } from '../types';
 import { formatINR } from '../utils/formatters';
 import { useToast } from '../components/Toast';
@@ -73,7 +73,7 @@ export const SettingsPage: React.FC = () => {
   ];
 
   const sysFields = [
-    { label: 'FastAPI Backend URL',        value: 'https://invoiceguard-backend.onrender.com/api', note: 'Render Free — cold-start detection active' },
+    { label: 'FastAPI Backend URL',        value: API_BASE_URL, note: 'Render Free — cold-start detection active' },
     { label: 'Database Engine',            value: 'SQLite + SQLAlchemy 2.0', note: 'Ephemeral on Render Free; auto-seeded on startup' },
     { label: 'Cryptographic Audit Ledger', value: 'SHA-256 Chained Hash Records', note: 'Immutable state history per transaction' },
     { label: 'Document Parsing Pipeline',  value: 'PyMuPDF + CV + Dual-Pass Checker', note: 'Zero-hallucination confidence scoring with retry' },

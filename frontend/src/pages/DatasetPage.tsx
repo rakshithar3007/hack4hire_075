@@ -99,9 +99,7 @@ export const DatasetPage: React.FC = () => {
 
   // ── CSV export (uses existing reports endpoint) ────────────────────────────
   const handleExport = () => {
-    const url = (import.meta as any).env?.VITE_API_URL
-      ? `${(import.meta as any).env.VITE_API_URL}/reports/export/csv`
-      : '/api/reports/export/csv';
+    const url = reportsApi.exportCsvUrl;
     const a = document.createElement('a');
     a.href = url;
     a.download = `invoiceguard_dataset_${new Date().toISOString().slice(0, 10)}.csv`;

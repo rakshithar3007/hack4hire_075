@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../services/api';
 
 export type ServerState = 'checking' | 'connected' | 'waking_up' | 'offline';
 
@@ -12,8 +13,6 @@ interface ServerStatusContextType {
 }
 
 const ServerStatusContext = createContext<ServerStatusContextType | undefined>(undefined);
-
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || '/api';
 
 export const ServerStatusProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [serverState, setServerState] = useState<ServerState>('checking');
