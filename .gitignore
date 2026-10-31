@@ -1,0 +1,303 @@
+# ==============================================================================
+# InvoiceGuard AI — .gitignore
+# Covers: Python/FastAPI backend · React/Vite frontend · n8n · OS & editor files
+# ==============================================================================
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SECRETS & CREDENTIALS  ← Never commit these
+# ──────────────────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example          # keep the template
+
+# Any sub-directory .env files
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+scripts/.env
+
+# Private keys, certificates, tokens
+*.pem
+*.key
+*.p12
+*.pfx
+*.cert
+*.crt
+*.cer
+secrets/
+credentials/
+*secret*
+*credential*
+*token*
+# Allow files that happen to have these words in legitimate names:
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PYTHON — virtual environments, cache, build artefacts
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Virtual environments (all common naming conventions)
+.venv/
+venv/
+env/
+ENV/
+.env/
+backend/.venv/
+backend/venv/
+backend/env/
+
+# Byte-compiled / optimised source files
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.pdb
+
+# Distribution & packaging
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+*.whl
+.Python
+pip-log.txt
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+share/python-wheels/
+.installed.cfg
+
+# Testing, coverage, linting caches
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+.tox/
+.nox/
+.hypothesis/
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DATABASE — never commit live database files
+# ──────────────────────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+backend/invoiceguard.db
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# UPLOADED FILES & STORAGE — keep folder structure via .gitkeep
+# ──────────────────────────────────────────────────────────────────────────────
+storage/invoices/*
+!storage/invoices/.gitkeep
+backend/storage/invoices/*
+!backend/storage/.gitkeep
+!backend/storage/invoices/.gitkeep
+
+# General upload / temp dirs
+uploads/
+tmp/
+temp/
+*.tmp
+*.temp
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# NODE.JS & FRONTEND
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+**/node_modules/
+
+# Production build output
+frontend/dist/
+frontend/dist-ssr/
+dist/
+build/
+
+# Vite & TypeScript caches
+.vite/
+frontend/.vite/
+**/.vite/
+*.tsbuildinfo
+frontend/*.tsbuildinfo
+
+# npm / yarn / pnpm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# Package manager lock files — keep one, gitignore the others
+# (this project uses npm, so package-lock.json is kept)
+yarn.lock
+pnpm-lock.yaml
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# IDE & EDITOR FILES
+# ──────────────────────────────────────────────────────────────────────────────
+
+# VS Code — keep shared settings, ignore personal/machine-specific files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# JetBrains IDEs (PyCharm, WebStorm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# Vim / Emacs
+*.sw?
+*~
+\#*\#
+.#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.ntvs*
+*.njsproj
+*.sln
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# OPERATING SYSTEM FILES
+# ──────────────────────────────────────────────────────────────────────────────
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# Linux
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LOGS & RUNTIME FILES
+# ──────────────────────────────────────────────────────────────────────────────
+*.log
+*.log.*
+logs/
+log/
+*.pid
+*.seed
+*.pid.lock
+*.sock
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# BACKUP & GENERATED FILES
+# ──────────────────────────────────────────────────────────────────────────────
+*.bak
+*.orig
+*.rej
+*.patch
+*.diff
+*_backup
+*_backup.*
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DEPLOYMENT CONFIGS — exclude platform-specific secrets if any
+# ──────────────────────────────────────────────────────────────────────────────
+# render.yaml and vercel.json are kept (they contain no secrets by design)
+# If you add service account keys or deploy tokens, add them here:
+# gcloud-key.json
+# firebase-adminsdk-*.json
+# service-account*.json
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# n8n AUTOMATION
+# ──────────────────────────────────────────────────────────────────────────────
+# n8n local data directory (if running locally)
+.n8n/
+n8n-data/
+# Keep the importable workflow JSON (it contains no secrets)
+# n8n/workflows/*.json  ← NOT ignored (intentionally tracked)
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# MISC
+# ──────────────────────────────────────────────────────────────────────────────
+# Compressed archives that shouldn't be in source control
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Python profiling output
+*.prof
+*.lprof
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
